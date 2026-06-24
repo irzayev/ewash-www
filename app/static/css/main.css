@@ -26,9 +26,10 @@
     --apple-fill-quaternary: rgba(116, 116, 128, 0.18);
 
     /* Liquid Glass material */
-    --glass-bg: rgba(120, 120, 128, 0.18);
-    --glass-bg-hover: rgba(120, 120, 128, 0.26);
-    --glass-bg-elevated: rgba(58, 58, 60, 0.72);
+    --glass-surface: #9a9aa11f;
+    --glass-bg: #9a9aa11f;
+    --glass-bg-hover: #9a9aa133;
+    --glass-bg-elevated: #9a9aa11f;
     --glass-border: rgba(255, 255, 255, 0.07);
     --glass-border-bright: rgba(255, 255, 255, 0.12);
     --glass-highlight: rgba(255, 255, 255, 0.04);
@@ -90,7 +91,7 @@ body {
 }
 
 .glass-panel {
-    background: var(--apple-fill-tertiary);
+    background: var(--glass-surface);
     backdrop-filter: blur(24px) saturate(160%);
     -webkit-backdrop-filter: blur(24px) saturate(160%);
     border: 0.5px solid var(--glass-border);
@@ -222,7 +223,7 @@ body {
 /* ── CTA ── */
 
 .cta-glass {
-    background: var(--apple-fill-quaternary);
+    background: var(--glass-surface);
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
     border: 0.5px solid var(--glass-border);
@@ -234,7 +235,7 @@ body {
 /* ── Badge ── */
 
 .badge-glass {
-    background: var(--apple-fill-quaternary);
+    background: var(--glass-surface);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 0.5px solid var(--glass-border);
