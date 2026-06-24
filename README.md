@@ -36,12 +36,16 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
+
+npm install
+npm run build:css   # после изменения шаблонов или tailwind.config.js
+npm run watch:css   # авто-сборка при разработке
+
 flask --app wsgi run --debug -p 8080
 ```
 
 ## Стек
 
 - Flask 3 + Gunicorn
-- Tailwind CSS (CDN)
-- Playfair Display + Inter
-- Material Symbols
+- Tailwind CSS 3 (CLI, production build)
+- Inter + Material Symbols
