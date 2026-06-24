@@ -26,10 +26,10 @@
     --apple-fill-quaternary: rgba(116, 116, 128, 0.18);
 
     /* Liquid Glass material */
-    --glass-surface: #9a9aa11f;
-    --glass-bg: #9a9aa11f;
-    --glass-bg-hover: #9a9aa133;
-    --glass-bg-elevated: #9a9aa11f;
+    --glass-surface: #5e4fb31f;
+    --glass-bg: #5e4fb31f;
+    --glass-bg-hover: #5e4fb333;
+    --glass-bg-elevated: #5e4fb31f;
     --glass-border: rgba(255, 255, 255, 0.07);
     --glass-border-bright: rgba(255, 255, 255, 0.12);
     --glass-highlight: rgba(255, 255, 255, 0.04);
@@ -135,7 +135,7 @@ body {
 /* ── Navigation ── */
 
 .nav-glass {
-    background: rgba(154, 154, 161, 0.12);
+    background: rgba(94, 79, 179, 0.12);
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
     border: 0.5px solid var(--glass-border);
