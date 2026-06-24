@@ -6,7 +6,7 @@
     <title>{{ t.meta_title }}</title>
     <meta name="description" content="{{ t.meta_description }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <script id="tailwind-config">
@@ -15,72 +15,64 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#f2ca50",
-                        "primary-container": "#d4af37",
-                        "on-primary": "#3c2f00",
-                        "on-primary-container": "#554300",
-                        "on-primary-fixed": "#241a00",
-                        secondary: "#d3c5ad",
-                        "on-surface": "#e2e2e8",
-                        "on-surface-variant": "#d0c5af",
-                        background: "#111317",
-                        surface: "#111317",
-                        "surface-variant": "#333539",
-                        "surface-container-lowest": "#0c0e12",
-                        "surface-container-low": "#1a1c20",
-                        "surface-container": "#1e2024",
-                        "surface-container-high": "#282a2e",
+                        primary: "#ffffff",
+                        secondary: "rgba(255, 255, 255, 0.55)",
+                        "on-surface": "#f5f5f7",
+                        "on-surface-variant": "rgba(255, 255, 255, 0.45)",
+                        background: "#000000",
+                        surface: "#0a0a0a",
+                        "surface-variant": "rgba(255, 255, 255, 0.06)",
+                        "surface-container-lowest": "#000000",
+                        "surface-container-low": "#0d0d0d",
+                        "surface-container": "#141414",
+                        "surface-container-high": "#1c1c1c",
                     },
                     borderRadius: {
-                        DEFAULT: "0.125rem",
-                        lg: "0.25rem",
-                        xl: "0.5rem",
-                        full: "0.75rem",
+                        DEFAULT: "12px",
+                        lg: "16px",
+                        xl: "20px",
+                        "2xl": "24px",
+                        "3xl": "32px",
+                        full: "9999px",
                     },
                     spacing: {
                         "margin-desktop": "48px",
                         "margin-mobile": "16px",
                         gutter: "24px",
-                        "container-max": "1440px",
+                        "container-max": "1200px",
                     },
                     fontFamily: {
-                        "display-lg": ["Playfair Display", "serif"],
-                        "headline-md": ["Playfair Display", "serif"],
-                        "headline-lg": ["Playfair Display", "serif"],
-                        "body-md": ["Inter", "sans-serif"],
-                        "body-lg": ["Inter", "sans-serif"],
-                        "label-md": ["Inter", "sans-serif"],
-                        "label-sm": ["Inter", "sans-serif"],
+                        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "SF Pro Display", "system-ui", "sans-serif"],
                     },
                     fontSize: {
-                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
-                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "600" }],
-                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "500" }],
-                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
-                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "500" }],
+                        "display-lg": ["56px", { lineHeight: "1.05", letterSpacing: "-0.03em", fontWeight: "700" }],
+                        "headline-lg": ["40px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-lg": ["19px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "1.4", letterSpacing: "0", fontWeight: "500" }],
+                        "label-sm": ["12px", { lineHeight: "1.3", letterSpacing: "0.04em", fontWeight: "500" }],
                     },
                 },
             },
         };
     </script>
 </head>
-<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden">
+<body class="bg-black text-on-surface font-sans antialiased overflow-x-hidden">
 
 <!-- Navigation -->
-<header class="bg-surface-variant/80 backdrop-blur-xl border-b border-primary/20 fixed top-0 w-full z-50 shadow-2xl">
-    <nav class="flex justify-between items-center px-4 md:px-margin-desktop py-4 max-w-container-max mx-auto">
-        <a href="#" class="font-display-lg text-headline-md tracking-tighter text-primary">eWash.az</a>
+<header class="fixed top-0 w-full z-50 px-4 md:px-margin-desktop pt-4">
+    <nav class="nav-glass flex justify-between items-center px-5 md:px-8 py-3 max-w-container-max mx-auto rounded-2xl">
+        <a href="#" class="text-headline-md font-semibold tracking-tight text-primary">eWash.az</a>
 
-        <div class="hidden md:flex items-center space-x-8">
-            <a class="font-label-md text-label-md text-primary border-b border-primary" href="#platform">{{ t.nav_platform }}</a>
-            <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#features">{{ t.nav_features }}</a>
-            <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#modules">{{ t.nav_modules }}</a>
-            <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#contact">{{ t.nav_contact }}</a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-label-md font-medium text-primary" href="#platform">{{ t.nav_platform }}</a>
+            <a class="text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#features">{{ t.nav_features }}</a>
+            <a class="text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#modules">{{ t.nav_modules }}</a>
+            <a class="text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#contact">{{ t.nav_contact }}</a>
         </div>
 
-        <div class="flex items-center gap-3 md:gap-6">
+        <div class="flex items-center gap-3 md:gap-5">
             <div class="lang-switch hidden sm:flex">
                 {% for code in supported_langs %}
                 <a href="{{ url_for('landing.set_lang', lang=code) }}"
@@ -88,21 +80,21 @@
                 {% endfor %}
             </div>
             {% if app_url != '#' %}
-            <a href="{{ app_url }}" class="hidden sm:inline font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all">{{ t.nav_login }}</a>
+            <a href="{{ app_url }}" class="hidden sm:inline text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors">{{ t.nav_login }}</a>
             {% endif %}
-            <a href="#contact" class="hidden sm:inline font-label-md text-label-md bg-primary-container text-on-primary-container px-5 py-2 rounded-full hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">{{ t.nav_start }}</a>
-            <button id="nav-toggle" class="md:hidden text-primary p-2" aria-label="Menu">
+            <a href="#contact" class="hidden sm:inline text-label-md font-medium btn-primary px-5 py-2 rounded-full">{{ t.nav_start }}</a>
+            <button id="nav-toggle" class="md:hidden text-primary p-2 rounded-xl hover:bg-white/5 transition-colors" aria-label="Menu">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="hidden md:hidden border-t border-primary/10 px-4 py-4 space-y-3 bg-surface-variant/95 backdrop-blur-xl">
-        <a class="block font-label-md text-primary py-2" href="#platform">{{ t.nav_platform }}</a>
-        <a class="block font-label-md text-on-surface-variant py-2" href="#features">{{ t.nav_features }}</a>
-        <a class="block font-label-md text-on-surface-variant py-2" href="#modules">{{ t.nav_modules }}</a>
-        <a class="block font-label-md text-on-surface-variant py-2" href="#contact">{{ t.nav_contact }}</a>
-        <div class="lang-switch pt-2">
+    <div id="mobile-menu" class="hidden md:hidden nav-glass mt-2 mx-auto max-w-container-max rounded-2xl px-5 py-4 space-y-1">
+        <a class="block text-label-md font-medium text-primary py-2.5" href="#platform">{{ t.nav_platform }}</a>
+        <a class="block text-label-md font-medium text-on-surface-variant py-2.5" href="#features">{{ t.nav_features }}</a>
+        <a class="block text-label-md font-medium text-on-surface-variant py-2.5" href="#modules">{{ t.nav_modules }}</a>
+        <a class="block text-label-md font-medium text-on-surface-variant py-2.5" href="#contact">{{ t.nav_contact }}</a>
+        <div class="lang-switch pt-3">
             {% for code in supported_langs %}
             <a href="{{ url_for('landing.set_lang', lang=code) }}"
                class="{{ 'active' if lang == code else '' }}">{{ t['lang_' + code] }}</a>
@@ -111,114 +103,117 @@
     </div>
 </header>
 
-<main class="relative hero-gradient pt-24 overflow-hidden">
+<main class="relative hero-ambient pt-32 md:pt-36 overflow-hidden">
+
+    <!-- Ambient orbs -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
 
     <!-- Hero -->
-    <section id="platform" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-24 flex flex-col md:flex-row items-center gap-gutter relative z-10">
+    <section id="platform" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
         <div class="w-full md:w-1/2 space-y-8">
-            <div class="space-y-4">
-                <span class="inline-block font-label-sm text-label-sm px-4 py-1 rounded-full border border-primary/30 text-primary tracking-widest uppercase">{{ t.hero_badge }}</span>
-                <h1 class="font-display-lg text-display-lg leading-tight">
-                    {{ t.hero_title }} <span class="text-primary italic">{{ t.hero_title_accent }}</span>
+            <div class="space-y-5">
+                <span class="inline-block badge-glass text-label-sm font-medium px-4 py-1.5 rounded-full text-on-surface-variant tracking-wide">{{ t.hero_badge }}</span>
+                <h1 class="text-display-lg font-bold tracking-tight">
+                    {{ t.hero_title }} <span class="text-muted-gradient">{{ t.hero_title_accent }}</span>
                 </h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">{{ t.hero_subtitle }}</p>
+                <p class="text-body-lg text-on-surface-variant max-w-lg leading-relaxed">{{ t.hero_subtitle }}</p>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" class="flex items-center justify-center gap-2 font-label-md text-label-md cta-gradient text-on-primary-fixed px-8 py-4 rounded-lg shadow-xl hover:shadow-primary/20 transition-all metallic-shine">
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="#contact" class="flex items-center justify-center gap-2 text-label-md font-medium btn-primary px-7 py-3.5 rounded-full">
                     {{ t.hero_cta_primary }}
                     <span class="material-symbols-outlined text-lg">arrow_forward</span>
                 </a>
-                <a href="#features" class="flex items-center justify-center gap-2 font-label-md text-label-md border border-secondary/30 text-secondary hover:border-primary hover:text-primary px-8 py-4 rounded-lg backdrop-blur-sm transition-all">
+                <a href="#features" class="flex items-center justify-center gap-2 text-label-md font-medium btn-glass text-on-surface px-7 py-3.5 rounded-full">
                     <span class="material-symbols-outlined text-lg">play_circle</span>
                     {{ t.hero_cta_secondary }}
                 </a>
             </div>
-            <div class="grid grid-cols-2 gap-4 pt-4">
-                <div class="glass-panel p-6 rounded-xl hover:border-primary/50 transition-all">
-                    <div class="text-primary font-display-lg text-headline-lg">99.9%</div>
-                    <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{{ t.stat_accuracy }}</div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="glass-panel p-5 rounded-2xl">
+                    <div class="text-primary text-headline-lg font-semibold tracking-tight">99.9%</div>
+                    <div class="text-label-sm text-on-surface-variant mt-1">{{ t.stat_accuracy }}</div>
                 </div>
-                <div class="glass-panel p-6 rounded-xl hover:border-primary/50 transition-all">
-                    <div class="text-primary font-display-lg text-headline-lg">12+</div>
-                    <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">{{ t.stat_modules }}</div>
+                <div class="glass-panel p-5 rounded-2xl">
+                    <div class="text-primary text-headline-lg font-semibold tracking-tight">12+</div>
+                    <div class="text-label-sm text-on-surface-variant mt-1">{{ t.stat_modules }}</div>
                 </div>
             </div>
         </div>
 
-        <div class="w-full md:w-1/2 relative mt-8 md:mt-0">
-            <div class="hero-image-wrap relative z-20 liquid-gold-glow rounded-2xl overflow-hidden aspect-video group transition-transform duration-300">
-                <img class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+        <div class="w-full md:w-1/2 relative mt-4 md:mt-0">
+            <div class="hero-image-wrap relative z-20 rounded-3xl overflow-hidden aspect-video group transition-transform duration-500">
+                <img class="w-full h-full object-cover grayscale-[30%] contrast-[1.05] transform transition-transform duration-700 group-hover:scale-[1.02]"
                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYQS4wZpKOXyejdFv_Tt25kOTVQX32GDB4esedBaZaUu2ig3kqHFzZ7n9Ri1Kprqj2JyZDmhFVyZ3NtA9W_ItMT_51YJmwGrP0Gn_renimjxYcZBssjDEMkMzD5hHEy0iVdGyHcCLbAmuExluGwh89gbq90VtC4-D0aKcFaPjR-nIpkW7MH9Sb74q769W0_5sXWAqQ8bq0oRIY2QttYs01J7llv__LA8mgIKw2OE4rwOakAxQVsMwdF9eJ_l3M5ZqJpeCmWtdSirE"
                      alt="eWash.az — premium car care"
                      loading="eager">
-                <div class="absolute bottom-6 right-6 glass-panel-active p-4 rounded-xl max-w-[240px]">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-2 h-2 rounded-full bg-primary animate-ping"></div>
-                        <span class="font-label-sm text-label-sm text-primary uppercase">{{ t.live_badge }}</span>
+                <div class="absolute bottom-5 right-5 glass-panel-active p-4 rounded-2xl max-w-[240px]">
+                    <div class="flex items-center gap-2.5 mb-2">
+                        <div class="w-2 h-2 rounded-full live-dot animate-ping"></div>
+                        <span class="text-label-sm font-medium text-primary">{{ t.live_badge }}</span>
                     </div>
                     <p class="text-xs text-on-surface-variant leading-relaxed">{{ t.live_text }}</p>
                 </div>
             </div>
-            <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
-            <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-primary/5 blur-[80px] rounded-full pointer-events-none"></div>
         </div>
     </section>
 
     <!-- Features Bento -->
-    <section id="features" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 relative z-10">
+    <section id="features" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 md:py-28 relative z-10">
         <div class="text-center mb-16 space-y-4">
-            <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase">{{ t.features_eyebrow }}</span>
-            <h2 class="font-display-lg text-display-lg liquid-gold-gradient">{{ t.features_title }}</h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">{{ t.features_subtitle }}</p>
+            <span class="text-label-sm font-medium text-on-surface-variant tracking-wide uppercase">{{ t.features_eyebrow }}</span>
+            <h2 class="text-headline-lg font-semibold tracking-tight text-glass-gradient">{{ t.features_title }}</h2>
+            <p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">{{ t.features_subtitle }}</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-            <div class="glass-card p-10 rounded-xl flex flex-col items-start group">
-                <div class="icon-container mb-8">
-                    <span class="material-symbols-outlined text-primary text-[32px]">receipt_long</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="glass-card p-8 rounded-3xl flex flex-col items-start group">
+                <div class="icon-container mb-6">
+                    <span class="material-symbols-outlined text-primary text-[28px]">receipt_long</span>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-primary mb-4 group-hover:gold-glow transition-all">{{ t.feat_orders_title }}</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_orders_desc }}</p>
-                <div class="w-full border-t border-primary/10 pt-6 flex items-center justify-between text-primary font-label-md">
+                <h3 class="text-headline-md font-semibold text-primary mb-3">{{ t.feat_orders_title }}</h3>
+                <p class="text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_orders_desc }}</p>
+                <div class="w-full border-t border-white/8 pt-5 flex items-center justify-between text-on-surface-variant group-hover:text-primary transition-colors text-label-md font-medium">
                     <span>{{ t.feat_orders_link }}</span>
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward_ios</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward_ios</span>
                 </div>
             </div>
 
-            <div class="glass-card p-10 rounded-xl flex flex-col items-start group">
-                <div class="icon-container mb-8">
-                    <span class="material-symbols-outlined text-primary text-[32px]">calendar_month</span>
+            <div class="glass-card p-8 rounded-3xl flex flex-col items-start group">
+                <div class="icon-container mb-6">
+                    <span class="material-symbols-outlined text-primary text-[28px]">calendar_month</span>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-primary mb-4 group-hover:gold-glow transition-all">{{ t.feat_schedule_title }}</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_schedule_desc }}</p>
-                <div class="w-full border-t border-primary/10 pt-6 flex items-center justify-between text-primary font-label-md">
+                <h3 class="text-headline-md font-semibold text-primary mb-3">{{ t.feat_schedule_title }}</h3>
+                <p class="text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_schedule_desc }}</p>
+                <div class="w-full border-t border-white/8 pt-5 flex items-center justify-between text-on-surface-variant group-hover:text-primary transition-colors text-label-md font-medium">
                     <span>{{ t.feat_schedule_link }}</span>
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward_ios</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward_ios</span>
                 </div>
             </div>
 
-            <div class="glass-card p-10 rounded-xl flex flex-col items-start group">
-                <div class="icon-container mb-8">
-                    <span class="material-symbols-outlined text-primary text-[32px]">loyalty</span>
+            <div class="glass-card p-8 rounded-3xl flex flex-col items-start group">
+                <div class="icon-container mb-6">
+                    <span class="material-symbols-outlined text-primary text-[28px]">loyalty</span>
                 </div>
-                <h3 class="font-headline-md text-headline-md text-primary mb-4 group-hover:gold-glow transition-all">{{ t.feat_crm_title }}</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_crm_desc }}</p>
-                <div class="w-full border-t border-primary/10 pt-6 flex items-center justify-between text-primary font-label-md">
+                <h3 class="text-headline-md font-semibold text-primary mb-3">{{ t.feat_crm_title }}</h3>
+                <p class="text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_crm_desc }}</p>
+                <div class="w-full border-t border-white/8 pt-5 flex items-center justify-between text-on-surface-variant group-hover:text-primary transition-colors text-label-md font-medium">
                     <span>{{ t.feat_crm_link }}</span>
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward_ios</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward_ios</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Modules Grid -->
-    <section id="modules" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 relative z-10">
+    <section id="modules" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 md:py-28 relative z-10">
         <div class="text-center mb-16 space-y-4">
-            <h2 class="font-display-lg text-headline-lg text-primary">{{ t.modules_title }}</h2>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">{{ t.modules_subtitle }}</p>
+            <h2 class="text-headline-lg font-semibold tracking-tight text-primary">{{ t.modules_title }}</h2>
+            <p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">{{ t.modules_subtitle }}</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {% set modules = [
                 ('chat', t.mod_whatsapp, t.mod_whatsapp_desc),
                 ('inventory_2', t.mod_warehouse, t.mod_warehouse_desc),
@@ -228,38 +223,38 @@
                 ('analytics', t.mod_reports, t.mod_reports_desc),
             ] %}
             {% for icon, title, desc in modules %}
-            <div class="luxury-glass p-8 rounded-xl space-y-4 hover:border-primary/40 transition-all">
-                <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">{{ icon }}</span>
-                <h3 class="font-headline-md text-headline-md text-secondary">{{ title }}</h3>
-                <p class="text-on-surface-variant text-body-md">{{ desc }}</p>
+            <div class="luxury-glass p-7 rounded-3xl space-y-3">
+                <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1, 'wght' 300;">{{ icon }}</span>
+                <h3 class="text-headline-md font-semibold text-primary">{{ title }}</h3>
+                <p class="text-on-surface-variant text-body-md leading-relaxed">{{ desc }}</p>
             </div>
             {% endfor %}
         </div>
     </section>
 
     <!-- CTA -->
-    <section id="contact" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 relative z-10">
-        <div class="p-8 md:p-12 rounded-xl bg-gradient-to-r from-surface-container-high to-surface-container border border-primary/20 flex flex-col md:flex-row items-center justify-between gap-8">
+    <section id="contact" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 md:py-28 relative z-10">
+        <div class="cta-glass p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="space-y-3 text-center md:text-left">
-                <h2 class="font-headline-md text-headline-md text-on-surface">{{ t.cta_title }}</h2>
-                <p class="font-body-md text-on-surface-variant">{{ t.cta_subtitle }}</p>
+                <h2 class="text-headline-md font-semibold text-primary">{{ t.cta_title }}</h2>
+                <p class="text-body-md text-on-surface-variant">{{ t.cta_subtitle }}</p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-2 text-on-surface-variant text-sm">
                     <a href="mailto:{{ contact_email }}" class="flex items-center gap-2 hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                        <span class="material-symbols-outlined text-lg">mail</span>
                         {{ contact_email }}
                     </a>
                     <a href="tel:{{ contact_phone | replace(' ', '') }}" class="flex items-center gap-2 hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary text-lg">call</span>
+                        <span class="material-symbols-outlined text-lg">call</span>
                         {{ contact_phone }}
                     </a>
                 </div>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 shrink-0">
-                <a href="mailto:{{ contact_email }}" class="cta-gradient text-on-primary font-label-md px-10 py-4 rounded-full hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-all metallic-shine text-center whitespace-nowrap">
+            <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                <a href="mailto:{{ contact_email }}" class="btn-primary text-label-md font-medium px-8 py-3.5 rounded-full text-center whitespace-nowrap">
                     {{ t.cta_button }}
                 </a>
                 {% if demo_url != '#' %}
-                <a href="{{ demo_url }}" class="luxury-glass border border-secondary/20 text-secondary font-label-md px-10 py-4 rounded-full hover:border-primary/50 transition-all text-center whitespace-nowrap">
+                <a href="{{ demo_url }}" class="btn-glass text-label-md font-medium px-8 py-3.5 rounded-full text-center whitespace-nowrap">
                     {{ t.cta_demo }}
                 </a>
                 {% endif %}
@@ -269,44 +264,44 @@
 </main>
 
 <!-- Footer -->
-<footer class="bg-surface-container-lowest py-12 border-t border-primary/10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-4 md:px-margin-desktop max-w-container-max mx-auto">
-        <div class="space-y-6">
-            <div class="font-display-lg text-headline-md text-primary">eWash.az</div>
-            <p class="font-body-md text-body-md text-on-surface-variant max-w-md">{{ t.footer_tagline }}</p>
-            <div class="flex gap-4">
-                <a href="mailto:{{ contact_email }}" class="w-10 h-10 flex items-center justify-center rounded-full luxury-glass text-primary hover:bg-primary hover:text-on-primary transition-all" aria-label="Email">
+<footer class="relative z-10 py-16 border-t border-white/6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="space-y-5">
+            <div class="text-headline-md font-semibold text-primary">eWash.az</div>
+            <p class="text-body-md text-on-surface-variant max-w-sm leading-relaxed">{{ t.footer_tagline }}</p>
+            <div class="flex gap-3">
+                <a href="mailto:{{ contact_email }}" class="w-10 h-10 flex items-center justify-center rounded-full social-glass text-on-surface-variant" aria-label="Email">
                     <span class="material-symbols-outlined text-xl">alternate_email</span>
                 </a>
-                <a href="tel:{{ contact_phone | replace(' ', '') }}" class="w-10 h-10 flex items-center justify-center rounded-full luxury-glass text-primary hover:bg-primary hover:text-on-primary transition-all" aria-label="Phone">
+                <a href="tel:{{ contact_phone | replace(' ', '') }}" class="w-10 h-10 flex items-center justify-center rounded-full social-glass text-on-surface-variant" aria-label="Phone">
                     <span class="material-symbols-outlined text-xl">call</span>
                 </a>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-8">
-            <div class="flex flex-col gap-4">
-                <h4 class="font-label-md text-label-md text-secondary uppercase tracking-widest">{{ t.footer_company }}</h4>
+            <div class="flex flex-col gap-3">
+                <h4 class="text-label-sm font-medium text-on-surface-variant uppercase tracking-wide">{{ t.footer_company }}</h4>
                 <nav class="flex flex-col gap-2">
-                    <a class="font-body-md text-on-surface-variant hover:text-primary transition-all" href="#platform">{{ t.footer_about }}</a>
-                    <a class="font-body-md text-on-surface-variant hover:text-primary transition-all" href="#features">{{ t.footer_features }}</a>
-                    <a class="font-body-md text-on-surface-variant hover:text-primary transition-all" href="#contact">{{ t.footer_contact }}</a>
+                    <a class="text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#platform">{{ t.footer_about }}</a>
+                    <a class="text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#features">{{ t.footer_features }}</a>
+                    <a class="text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#contact">{{ t.footer_contact }}</a>
                 </nav>
             </div>
-            <div class="flex flex-col gap-4">
-                <h4 class="font-label-md text-label-md text-secondary uppercase tracking-widest">{{ t.footer_legal }}</h4>
+            <div class="flex flex-col gap-3">
+                <h4 class="text-label-sm font-medium text-on-surface-variant uppercase tracking-wide">{{ t.footer_legal }}</h4>
                 <nav class="flex flex-col gap-2">
-                    <span class="font-body-md text-on-surface-variant/60">{{ t.footer_privacy }}</span>
-                    <span class="font-body-md text-on-surface-variant/60">{{ t.footer_terms }}</span>
-                    <span class="font-body-md text-on-surface-variant/60">{{ t.footer_security }}</span>
+                    <span class="text-body-md text-on-surface-variant/50">{{ t.footer_privacy }}</span>
+                    <span class="text-body-md text-on-surface-variant/50">{{ t.footer_terms }}</span>
+                    <span class="text-body-md text-on-surface-variant/50">{{ t.footer_security }}</span>
                 </nav>
             </div>
         </div>
     </div>
-    <div class="mt-12 pt-8 border-t border-primary/5 px-4 md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <span class="font-body-md text-on-surface-variant/60">{{ t.footer_rights.format(year=year) }}</span>
+    <div class="mt-12 pt-8 border-t border-white/5 px-4 md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <span class="text-body-md text-on-surface-variant/50">{{ t.footer_rights.format(year=year) }}</span>
         <div class="flex items-center gap-2 text-on-surface-variant/40">
             <span class="material-symbols-outlined text-sm">location_on</span>
-            <span class="font-label-sm text-label-sm">{{ t.footer_location }}</span>
+            <span class="text-label-sm">{{ t.footer_location }}</span>
         </div>
     </div>
 </footer>
