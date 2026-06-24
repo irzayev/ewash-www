@@ -16,16 +16,21 @@
                 extend: {
                     colors: {
                         primary: "#ffffff",
-                        secondary: "rgba(255, 255, 255, 0.55)",
-                        "on-surface": "#f5f5f7",
-                        "on-surface-variant": "rgba(255, 255, 255, 0.45)",
+                        secondary: "#8e8e93",
+                        tertiary: "#636366",
+                        quaternary: "#48484a",
+                        "on-surface": "#ffffff",
+                        "on-surface-secondary": "rgba(235, 235, 245, 0.6)",
+                        "on-surface-variant": "#8e8e93",
+                        "on-surface-tertiary": "rgba(235, 235, 245, 0.3)",
                         background: "#000000",
-                        surface: "#0a0a0a",
-                        "surface-variant": "rgba(255, 255, 255, 0.06)",
-                        "surface-container-lowest": "#000000",
-                        "surface-container-low": "#0d0d0d",
-                        "surface-container": "#141414",
-                        "surface-container-high": "#1c1c1c",
+                        surface: "#1c1c1e",
+                        "surface-elevated": "#2c2c2e",
+                        "surface-grouped": "#1c1c1e",
+                        separator: "#38383a",
+                        fill: "rgba(120, 120, 128, 0.36)",
+                        "fill-secondary": "rgba(120, 120, 128, 0.32)",
+                        "fill-tertiary": "rgba(118, 118, 128, 0.24)",
                     },
                     borderRadius: {
                         DEFAULT: "12px",
@@ -58,7 +63,7 @@
         };
     </script>
 </head>
-<body class="bg-black text-on-surface font-sans antialiased overflow-x-hidden">
+<body class="bg-background text-on-surface font-sans antialiased overflow-x-hidden">
 
 <!-- Navigation -->
 <header class="fixed top-0 w-full z-50 px-4 md:px-margin-desktop pt-4">
@@ -67,9 +72,9 @@
 
         <div class="hidden md:flex items-center gap-8">
             <a class="text-label-md font-medium text-primary" href="#platform">{{ t.nav_platform }}</a>
-            <a class="text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#features">{{ t.nav_features }}</a>
-            <a class="text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#modules">{{ t.nav_modules }}</a>
-            <a class="text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#contact">{{ t.nav_contact }}</a>
+            <a class="text-label-md font-medium text-secondary hover:text-primary transition-colors" href="#features">{{ t.nav_features }}</a>
+            <a class="text-label-md font-medium text-secondary hover:text-primary transition-colors" href="#modules">{{ t.nav_modules }}</a>
+            <a class="text-label-md font-medium text-secondary hover:text-primary transition-colors" href="#contact">{{ t.nav_contact }}</a>
         </div>
 
         <div class="flex items-center gap-3 md:gap-5">
@@ -80,10 +85,10 @@
                 {% endfor %}
             </div>
             {% if app_url != '#' %}
-            <a href="{{ app_url }}" class="hidden sm:inline text-label-md font-medium text-on-surface-variant hover:text-primary transition-colors">{{ t.nav_login }}</a>
+                <a href="{{ app_url }}" class="hidden sm:inline text-label-md font-medium text-secondary hover:text-primary transition-colors">{{ t.nav_login }}</a>
             {% endif %}
             <a href="#contact" class="hidden sm:inline text-label-md font-medium btn-primary px-5 py-2 rounded-full">{{ t.nav_start }}</a>
-            <button id="nav-toggle" class="md:hidden text-primary p-2 rounded-xl hover:bg-white/5 transition-colors" aria-label="Menu">
+            <button id="nav-toggle" class="md:hidden text-primary p-2 rounded-xl hover:bg-fill-tertiary transition-colors" aria-label="Menu">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
@@ -91,9 +96,9 @@
 
     <div id="mobile-menu" class="hidden md:hidden nav-glass mt-2 mx-auto max-w-container-max rounded-2xl px-5 py-4 space-y-1">
         <a class="block text-label-md font-medium text-primary py-2.5" href="#platform">{{ t.nav_platform }}</a>
-        <a class="block text-label-md font-medium text-on-surface-variant py-2.5" href="#features">{{ t.nav_features }}</a>
-        <a class="block text-label-md font-medium text-on-surface-variant py-2.5" href="#modules">{{ t.nav_modules }}</a>
-        <a class="block text-label-md font-medium text-on-surface-variant py-2.5" href="#contact">{{ t.nav_contact }}</a>
+        <a class="block text-label-md font-medium text-secondary py-2.5" href="#features">{{ t.nav_features }}</a>
+        <a class="block text-label-md font-medium text-secondary py-2.5" href="#modules">{{ t.nav_modules }}</a>
+        <a class="block text-label-md font-medium text-secondary py-2.5" href="#contact">{{ t.nav_contact }}</a>
         <div class="lang-switch pt-3">
             {% for code in supported_langs %}
             <a href="{{ url_for('landing.set_lang', lang=code) }}"
@@ -114,11 +119,11 @@
     <section id="platform" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-12 md:py-20 flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
         <div class="w-full md:w-1/2 space-y-8">
             <div class="space-y-5">
-                <span class="inline-block badge-glass text-label-sm font-medium px-4 py-1.5 rounded-full text-on-surface-variant tracking-wide">{{ t.hero_badge }}</span>
+                <span class="inline-block badge-glass text-label-sm font-medium px-4 py-1.5 rounded-full tracking-wide">{{ t.hero_badge }}</span>
                 <h1 class="text-display-lg font-bold tracking-tight">
                     {{ t.hero_title }} <span class="text-muted-gradient">{{ t.hero_title_accent }}</span>
                 </h1>
-                <p class="text-body-lg text-on-surface-variant max-w-lg leading-relaxed">{{ t.hero_subtitle }}</p>
+                <p class="text-body-lg text-on-surface-secondary max-w-lg leading-relaxed">{{ t.hero_subtitle }}</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" class="flex items-center justify-center gap-2 text-label-md font-medium btn-primary px-7 py-3.5 rounded-full">
@@ -133,11 +138,11 @@
             <div class="grid grid-cols-2 gap-3 pt-2">
                 <div class="glass-panel p-5 rounded-2xl">
                     <div class="text-primary text-headline-lg font-semibold tracking-tight">99.9%</div>
-                    <div class="text-label-sm text-on-surface-variant mt-1">{{ t.stat_accuracy }}</div>
+                    <div class="text-label-sm text-secondary mt-1">{{ t.stat_accuracy }}</div>
                 </div>
                 <div class="glass-panel p-5 rounded-2xl">
                     <div class="text-primary text-headline-lg font-semibold tracking-tight">12+</div>
-                    <div class="text-label-sm text-on-surface-variant mt-1">{{ t.stat_modules }}</div>
+                    <div class="text-label-sm text-secondary mt-1">{{ t.stat_modules }}</div>
                 </div>
             </div>
         </div>
@@ -153,7 +158,7 @@
                         <div class="w-2 h-2 rounded-full live-dot animate-ping"></div>
                         <span class="text-label-sm font-medium text-primary">{{ t.live_badge }}</span>
                     </div>
-                    <p class="text-xs text-on-surface-variant leading-relaxed">{{ t.live_text }}</p>
+                    <p class="text-xs text-secondary leading-relaxed">{{ t.live_text }}</p>
                 </div>
             </div>
         </div>
@@ -162,9 +167,9 @@
     <!-- Features Bento -->
     <section id="features" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 md:py-28 relative z-10">
         <div class="text-center mb-16 space-y-4">
-            <span class="text-label-sm font-medium text-on-surface-variant tracking-wide uppercase">{{ t.features_eyebrow }}</span>
+            <span class="text-label-sm font-medium text-secondary tracking-wide uppercase">{{ t.features_eyebrow }}</span>
             <h2 class="text-headline-lg font-semibold tracking-tight text-glass-gradient">{{ t.features_title }}</h2>
-            <p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">{{ t.features_subtitle }}</p>
+            <p class="text-body-lg text-on-surface-secondary max-w-xl mx-auto">{{ t.features_subtitle }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -173,8 +178,8 @@
                     <span class="material-symbols-outlined text-primary text-[28px]">receipt_long</span>
                 </div>
                 <h3 class="text-headline-md font-semibold text-primary mb-3">{{ t.feat_orders_title }}</h3>
-                <p class="text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_orders_desc }}</p>
-                <div class="w-full border-t border-white/8 pt-5 flex items-center justify-between text-on-surface-variant group-hover:text-primary transition-colors text-label-md font-medium">
+                <p class="text-body-md text-on-surface-secondary mb-8 leading-relaxed flex-grow">{{ t.feat_orders_desc }}</p>
+                <div class="w-full border-t border-separator pt-5 flex items-center justify-between text-secondary group-hover:text-primary transition-colors text-label-md font-medium">
                     <span>{{ t.feat_orders_link }}</span>
                     <span class="material-symbols-outlined text-[16px]">arrow_forward_ios</span>
                 </div>
@@ -185,8 +190,8 @@
                     <span class="material-symbols-outlined text-primary text-[28px]">calendar_month</span>
                 </div>
                 <h3 class="text-headline-md font-semibold text-primary mb-3">{{ t.feat_schedule_title }}</h3>
-                <p class="text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_schedule_desc }}</p>
-                <div class="w-full border-t border-white/8 pt-5 flex items-center justify-between text-on-surface-variant group-hover:text-primary transition-colors text-label-md font-medium">
+                <p class="text-body-md text-on-surface-secondary mb-8 leading-relaxed flex-grow">{{ t.feat_schedule_desc }}</p>
+                <div class="w-full border-t border-separator pt-5 flex items-center justify-between text-secondary group-hover:text-primary transition-colors text-label-md font-medium">
                     <span>{{ t.feat_schedule_link }}</span>
                     <span class="material-symbols-outlined text-[16px]">arrow_forward_ios</span>
                 </div>
@@ -197,8 +202,8 @@
                     <span class="material-symbols-outlined text-primary text-[28px]">loyalty</span>
                 </div>
                 <h3 class="text-headline-md font-semibold text-primary mb-3">{{ t.feat_crm_title }}</h3>
-                <p class="text-body-md text-on-surface-variant mb-8 leading-relaxed flex-grow">{{ t.feat_crm_desc }}</p>
-                <div class="w-full border-t border-white/8 pt-5 flex items-center justify-between text-on-surface-variant group-hover:text-primary transition-colors text-label-md font-medium">
+                <p class="text-body-md text-on-surface-secondary mb-8 leading-relaxed flex-grow">{{ t.feat_crm_desc }}</p>
+                <div class="w-full border-t border-separator pt-5 flex items-center justify-between text-secondary group-hover:text-primary transition-colors text-label-md font-medium">
                     <span>{{ t.feat_crm_link }}</span>
                     <span class="material-symbols-outlined text-[16px]">arrow_forward_ios</span>
                 </div>
@@ -210,7 +215,7 @@
     <section id="modules" class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-20 md:py-28 relative z-10">
         <div class="text-center mb-16 space-y-4">
             <h2 class="text-headline-lg font-semibold tracking-tight text-primary">{{ t.modules_title }}</h2>
-            <p class="text-body-lg text-on-surface-variant max-w-xl mx-auto">{{ t.modules_subtitle }}</p>
+            <p class="text-body-lg text-on-surface-secondary max-w-xl mx-auto">{{ t.modules_subtitle }}</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -226,7 +231,7 @@
             <div class="luxury-glass p-7 rounded-3xl space-y-3">
                 <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1, 'wght' 300;">{{ icon }}</span>
                 <h3 class="text-headline-md font-semibold text-primary">{{ title }}</h3>
-                <p class="text-on-surface-variant text-body-md leading-relaxed">{{ desc }}</p>
+                <p class="text-secondary text-body-md leading-relaxed">{{ desc }}</p>
             </div>
             {% endfor %}
         </div>
@@ -237,8 +242,8 @@
         <div class="cta-glass p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="space-y-3 text-center md:text-left">
                 <h2 class="text-headline-md font-semibold text-primary">{{ t.cta_title }}</h2>
-                <p class="text-body-md text-on-surface-variant">{{ t.cta_subtitle }}</p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-2 text-on-surface-variant text-sm">
+                <p class="text-body-md text-on-surface-secondary">{{ t.cta_subtitle }}</p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-2 text-secondary text-sm">
                     <a href="mailto:{{ contact_email }}" class="flex items-center gap-2 hover:text-primary transition-colors">
                         <span class="material-symbols-outlined text-lg">mail</span>
                         {{ contact_email }}
@@ -264,42 +269,42 @@
 </main>
 
 <!-- Footer -->
-<footer class="relative z-10 py-16 border-t border-white/6">
+<footer class="relative z-10 py-16 border-t border-separator">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 md:px-margin-desktop max-w-container-max mx-auto">
         <div class="space-y-5">
             <div class="text-headline-md font-semibold text-primary">eWash.az</div>
-            <p class="text-body-md text-on-surface-variant max-w-sm leading-relaxed">{{ t.footer_tagline }}</p>
+            <p class="text-body-md text-on-surface-secondary max-w-sm leading-relaxed">{{ t.footer_tagline }}</p>
             <div class="flex gap-3">
-                <a href="mailto:{{ contact_email }}" class="w-10 h-10 flex items-center justify-center rounded-full social-glass text-on-surface-variant" aria-label="Email">
+                <a href="mailto:{{ contact_email }}" class="w-10 h-10 flex items-center justify-center rounded-full social-glass" aria-label="Email">
                     <span class="material-symbols-outlined text-xl">alternate_email</span>
                 </a>
-                <a href="tel:{{ contact_phone | replace(' ', '') }}" class="w-10 h-10 flex items-center justify-center rounded-full social-glass text-on-surface-variant" aria-label="Phone">
+                <a href="tel:{{ contact_phone | replace(' ', '') }}" class="w-10 h-10 flex items-center justify-center rounded-full social-glass" aria-label="Phone">
                     <span class="material-symbols-outlined text-xl">call</span>
                 </a>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-8">
             <div class="flex flex-col gap-3">
-                <h4 class="text-label-sm font-medium text-on-surface-variant uppercase tracking-wide">{{ t.footer_company }}</h4>
+                <h4 class="text-label-sm font-medium text-secondary uppercase tracking-wide">{{ t.footer_company }}</h4>
                 <nav class="flex flex-col gap-2">
-                    <a class="text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#platform">{{ t.footer_about }}</a>
-                    <a class="text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#features">{{ t.footer_features }}</a>
-                    <a class="text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#contact">{{ t.footer_contact }}</a>
+                    <a class="text-body-md text-secondary hover:text-primary transition-colors" href="#platform">{{ t.footer_about }}</a>
+                    <a class="text-body-md text-secondary hover:text-primary transition-colors" href="#features">{{ t.footer_features }}</a>
+                    <a class="text-body-md text-secondary hover:text-primary transition-colors" href="#contact">{{ t.footer_contact }}</a>
                 </nav>
             </div>
             <div class="flex flex-col gap-3">
-                <h4 class="text-label-sm font-medium text-on-surface-variant uppercase tracking-wide">{{ t.footer_legal }}</h4>
+                <h4 class="text-label-sm font-medium text-secondary uppercase tracking-wide">{{ t.footer_legal }}</h4>
                 <nav class="flex flex-col gap-2">
-                    <span class="text-body-md text-on-surface-variant/50">{{ t.footer_privacy }}</span>
-                    <span class="text-body-md text-on-surface-variant/50">{{ t.footer_terms }}</span>
-                    <span class="text-body-md text-on-surface-variant/50">{{ t.footer_security }}</span>
+                    <span class="text-body-md text-tertiary">{{ t.footer_privacy }}</span>
+                    <span class="text-body-md text-tertiary">{{ t.footer_terms }}</span>
+                    <span class="text-body-md text-tertiary">{{ t.footer_security }}</span>
                 </nav>
             </div>
         </div>
     </div>
-    <div class="mt-12 pt-8 border-t border-white/5 px-4 md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <span class="text-body-md text-on-surface-variant/50">{{ t.footer_rights.format(year=year) }}</span>
-        <div class="flex items-center gap-2 text-on-surface-variant/40">
+    <div class="mt-12 pt-8 border-t border-separator px-4 md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <span class="text-body-md text-tertiary">{{ t.footer_rights.format(year=year) }}</span>
+        <div class="flex items-center gap-2 text-quaternary">
             <span class="material-symbols-outlined text-sm">location_on</span>
             <span class="text-label-sm">{{ t.footer_location }}</span>
         </div>
