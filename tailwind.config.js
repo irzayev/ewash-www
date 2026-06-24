@@ -13,7 +13,7 @@ module.exports = {
                 "on-surface-secondary": "rgba(235, 235, 245, 0.6)",
                 "on-surface-variant": "#8e8e93",
                 "on-surface-tertiary": "rgba(235, 235, 245, 0.3)",
-                background: "#000000",
+                background: "#5e4fb30d",
                 surface: "#1c1c1e",
                 "surface-elevated": "#2c2c2e",
                 "surface-grouped": "#1c1c1e",
