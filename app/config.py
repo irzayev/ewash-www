@@ -9,3 +9,4 @@ class Config:
     CONTACT_PHONE = os.environ.get("CONTACT_PHONE", "+994 12 345 67 89")
     DEMO_URL = os.environ.get("DEMO_URL", "#demo")
     APP_URL = os.environ.get("APP_URL", "#")
+    SEND_FILE_MAX_AGE_DEFAULT = int(os.environ.get("STATIC_CACHE_SECONDS", 31536000))

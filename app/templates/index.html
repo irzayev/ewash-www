@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ t.meta_title }}</title>
     <meta name="description" content="{{ t.meta_description }}">
+    <link rel="preload" href="{{ url_for('static', filename='fonts/inter-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', filename='fonts/inter-cyrillic.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', filename='fonts/inter-latin-ext.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ url_for('static', filename='fonts/material-symbols.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <script id="tailwind-config">
         tailwind.config = {
@@ -66,7 +69,7 @@
 <body class="bg-background text-on-surface font-sans antialiased overflow-x-hidden">
 
 <!-- Navigation -->
-<header class="fixed top-0 w-full z-50 px-4 md:px-margin-desktop pt-4">
+<header class="fixed top-0 w-full z-50 px-4 md:px-margin-desktop pt-4 page-enter">
     <nav class="nav-glass flex justify-between items-center px-5 md:px-8 py-3 max-w-container-max mx-auto rounded-2xl">
         <a href="#" class="text-headline-md font-semibold tracking-tight text-primary">eWash.az</a>
 
@@ -108,7 +111,7 @@
     </div>
 </header>
 
-<main class="relative hero-ambient pt-32 md:pt-36 overflow-hidden">
+<main class="relative hero-ambient pt-32 md:pt-36 overflow-hidden page-enter page-enter-delay-1">
 
     <!-- Ambient orbs -->
     <div class="orb orb-1" aria-hidden="true"></div>
@@ -253,7 +256,7 @@
 </main>
 
 <!-- Footer -->
-<footer class="relative z-10 py-16 border-t border-separator">
+<footer class="relative z-10 py-16 border-t border-separator page-enter page-enter-delay-2">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 md:px-margin-desktop max-w-container-max mx-auto">
         <div class="space-y-5">
             <div class="text-headline-md font-semibold text-primary">eWash.az</div>
